@@ -1,5 +1,5 @@
 # OpenCV.NET.Interop
-OpenCV interop with C# without Emgu CV or C++/CLI or COM
+## OpenCV interop with C# without Emgu CV or C++/CLI or COM
 
 Examples for
 1. Passing an image frame from C# to C++
