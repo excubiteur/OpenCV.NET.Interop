@@ -13,12 +13,14 @@ namespace Test
             var filename = Environment.CurrentDirectory + "\\resized.bmp";
 
             GCHandle handle = GCHandle.Alloc(image_bytes, GCHandleType.Pinned);
-            var bitmap = new Bitmap(width,
+            using (var bitmap = new Bitmap(width,
                 height,
                 width * 4, PixelFormat.Format32bppRgb,
-                Marshal.UnsafeAddrOfPinnedArrayElement(image_bytes, 0));
+                Marshal.UnsafeAddrOfPinnedArrayElement(image_bytes, 0)))
+            {
+                bitmap.Save(filename);
+            }
             handle.Free();
-            bitmap.Save(filename);
             return 0;
         }
 
